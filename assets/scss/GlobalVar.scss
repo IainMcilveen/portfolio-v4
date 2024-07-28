@@ -1,0 +1,27 @@
+$bgDark: #282c34;
+$bgMid: #888787;
+$bgLight: #CDCDCD;
+
+.img-loading {
+
+  color: $bgDark;
+  font-size: 3em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .load-icon {
+    animation: spin 1250ms infinite ease-in-out;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(405deg);
+  }
+}

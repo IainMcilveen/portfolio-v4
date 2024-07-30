@@ -6,8 +6,12 @@ interface NavItem {
 
 const data: NavItem[] = [
   {
-    text: "About",
+    text: "Home",
     url: "/"
+  },
+  {
+    text: "About",
+    url: "/About"
   },
   {
     text: "Experiences",

@@ -7,6 +7,7 @@ export interface ProjectData {
   title: string,
   desc?: string,
   text: string,
+  skills: string[]
 }
 
 defineProps<{
@@ -26,6 +27,11 @@ defineProps<{
     <div class="Project-Info">
       <p>{{project.text}}</p>
     </div>
+    <div class="Project-Skills">
+      <div v-for="(skill,index) in project.skills" :key="'skill-'+index" class="skill">
+        {{ skill }}
+      </div>
+    </div>
 </div>
 </template>
 
@@ -35,7 +41,7 @@ defineProps<{
   transition: 300ms ease all;
 
   width: 500px;
-  height: 450px;
+  height: 400px;
 
   background-color: $bgLight;
   border-radius: 2px;
@@ -51,19 +57,19 @@ defineProps<{
       color: $bgDark;
     }
     h4{
-      font-size: 22px;
+      font-size: 24px;
       margin: 5px;
       margin-left: 0;
       margin-bottom: 0;
       color: $bgDark;
     }
     h6{
-      font-size: 15px;
+      font-size: 17px;
       margin-top: 0;
       margin-bottom: 2px;
     }
     p{
-      font-size: 13px;
+      font-size: 15px;
       margin: 7px 0 0 0;
     }
   }
@@ -73,11 +79,25 @@ defineProps<{
       margin: 3px 5px 0 0;
     }
   }
+
+  .Project-Skills {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    justify-content: center;
+
+    .skill {
+      padding: 5px;
+      margin-right: 5px;
+      background-color: lightcyan;
+      border-radius: 5px;
+    }
+  }
 }
 
 .Project-Box:hover{
   width: 505px;
-  height: 455px;
+  height: 405px;
   box-shadow: 0 5px 5px $bgMid;
 }
 

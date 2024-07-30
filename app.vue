@@ -5,6 +5,10 @@
 </template>
 
 <style lang="scss">
+html * {
+  scrollbar-width: thin;
+}
+
 body {
   margin: 0;
   height: 100vh;

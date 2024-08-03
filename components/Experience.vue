@@ -34,7 +34,9 @@ function getFipped() {
       <p>{{experience.text}}</p>
     </div>
     <div class="Experience-Image">
-      <LinkableImage :img="experience.img" :url="experience.url" height="100%" />
+      <div class="Image-Container">
+        <LinkableImage :img="experience.img" :url="experience.url" height="100%" />
+      </div>
     </div>
   </div>
 </template>
@@ -64,7 +66,7 @@ function getFipped() {
     display:flex;
     flex-direction: column;
     width: 50%;
-    margin-left: 10px;
+    margin-right: 10px;
     padding: 10px;
     padding-right: 0;
     
@@ -100,8 +102,7 @@ function getFipped() {
     padding-left: 0px;
     width: 50%;
 
-    img{
-      border-radius: 0.10em;
+    .Image-Container{
       object-fit:cover;
       width: 100%;
       height: 100%;
@@ -134,6 +135,9 @@ function getFipped() {
 
     padding-left: 0;
     padding-right: 10px;
+
+    margin-right: 0;
+    margin-left: 10px;
 
     h2,h4,p{
       margin-right: 0;

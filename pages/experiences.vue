@@ -79,5 +79,7 @@ const data: ExperienceData[] = [
 <style lang="scss" scoped>
 .Experiences {
   overflow-x: hidden;
+  padding-top: 10px;
+  background-color: $bgDark;
 }
 </style>

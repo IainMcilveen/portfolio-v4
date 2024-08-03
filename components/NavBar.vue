@@ -10,10 +10,6 @@ const data: NavItem[] = [
     url: "/"
   },
   {
-    text: "About",
-    url: "/About"
-  },
-  {
     text: "Experiences",
     url: "/experiences"
   },
@@ -22,8 +18,8 @@ const data: NavItem[] = [
     url: "/projects"
   },
   {
-    text: "Contact",
-    url: "/contact"
+    text: "Resume",
+    url: "https://drive.google.com/file/d/1P-3NAXoleGS5Vkq5UAQbExlAARSXi4PA/view?usp=share_link"
   }
 ];
 

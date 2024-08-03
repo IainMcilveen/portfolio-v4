@@ -133,11 +133,15 @@ const personalProjects: ProjectData[] = [
 
 <template>
   <div class="Projects">
-    <h3>Work Projects</h3>
+    <div class="Section-Description">
+      <h3>Work Projects</h3>
+    </div>
     <div class="Projects-Container">
       <Project v-for="(exp, index) in workProjects" :project="exp" :key="'Project'+index" />
     </div>
-    <h3>Personal Projects</h3>
+    <div class="Section-Description">
+      <h3>Personal Projects</h3>
+    </div>
     <div class="Projects-Container">
       <Project v-for="(exp, index) in personalProjects" :project="exp" :key="'Project'+index" />
     </div>
@@ -148,11 +152,19 @@ const personalProjects: ProjectData[] = [
 <style lang="scss" scoped>
 .Projects {
   overflow-x: hidden;
-}
-.Projects-Container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  background-color: $bgDark;
+
+  .Section-Description {
+    color: $bgLight;
+    width: 100vw;
+    text-align: center;
+  }
+
+  .Projects-Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

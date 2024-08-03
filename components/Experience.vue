@@ -45,7 +45,7 @@ function getFipped() {
 
   transition: 200ms ease all;
 
-  background-color: white;
+  background-color: $bgLight;
 
   margin: auto;
   margin-bottom: 10px;
@@ -84,6 +84,7 @@ function getFipped() {
     p {
       margin: 0;
       margin-top: 10px;
+      font-size: 1.1em;
     }
 
     #subtitle{

@@ -7,6 +7,7 @@
 <style lang="scss">
 html * {
   scrollbar-width: thin;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {

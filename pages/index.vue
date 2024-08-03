@@ -10,9 +10,10 @@
 			</div>
 			<div class="intro">
 				<div class="introText">
-					<h1>Hi! I'm Iain</h1>
+					<h1>Iain Mcilveen</h1>
 					<hr/>
-					<p>I am a Full Stack Developer currently working at Chartd! I am passionate about all things computer science and enjoy learning new things.</p>
+					<p>Hello There! I'm currently working as a Full Stack Developer at <a href="https://chartd.ai/">Chartd</a>! I also have a Computer Science degree from <a href="https://carleton.ca/">Carleton University.</a></p>
+					<p>I am passionate about all things computer science and enjoy learning new things.</p>
 				</div>
 				<div class="resume">
 					<a href="https://drive.google.com/file/d/1P-3NAXoleGS5Vkq5UAQbExlAARSXi4PA/view?usp=share_link">Resume</a>
@@ -26,8 +27,8 @@
 
 <style lang="scss" scoped>
 .App-main {
-  background-color: $bgDark;
-  color: $bgLight;
+  	background-color: $bgDark;
+  	color: $bgLight;
 	height: 100%;
 	width: 100%;
    
@@ -55,7 +56,7 @@
 		
 		.intro{
 			color: $bgLight;
-      margin: auto;
+      		margin: auto;
 			max-width: 50vw;
 			padding: 1em;
 			
@@ -66,36 +67,43 @@
 				margin: 2px;
 			}
 			
-      h1{
+			h1{
 				margin: 0;
 				margin-bottom: 0.25em;
-        text-align: center;
+        		text-align: center;
 			}
 			
-      p{
+      		p{
 				margin: 0;
 				margin-top: 0.25em;
 				margin-bottom: 0.75em;
 				text-align: left;
 				font-size: 1.1em;
 			}
+
+			.introText {
+				a {
+					color: lightblue;
+					text-decoration: none;
+				}
+			}
       
-      .resume {
-        text-align: center;
-        padding-top: 10px;
-        a{
-          transition: 300ms ease all;
-          padding: 5px;
-          margin-right: 5px;
-          border-radius: 5px;
-          color: $bgLight;
-          text-decoration: none;
-        }
-        a:hover{
-          color: white;
-          background-color: #181b20;
-        }
-      }
+      		.resume {
+				text-align: center;
+				padding-top: 10px;
+				a{
+					transition: 300ms ease all;
+					padding: 5px;
+					margin-right: 5px;
+					border-radius: 5px;
+					color: $bgLight;
+					text-decoration: none;
+				}
+				a:hover{
+					color: white;
+					background-color: #181b20;
+				}
+      		}
 			
 		} 
 		//font-size: calc(10px + 1vmin);

@@ -41,7 +41,7 @@ defineProps<{
   transition: 300ms ease all;
 
   width: 500px;
-  height: 400px;
+  height: 450px;
 
   background-color: $bgLight;
   border-radius: 2px;
@@ -97,7 +97,7 @@ defineProps<{
 
 .Project-Box:hover{
   width: 505px;
-  height: 405px;
+  height: 455px;
   box-shadow: 0 5px 5px $bgMid;
 }
 

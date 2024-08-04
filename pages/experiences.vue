@@ -14,7 +14,7 @@ const data: ExperienceData[] = [
 		title: "Full Stack Developer",
 		desc: "Chartd",
 		time: "May 2023 - Present",
-		text: "As a Full Stack Developer I am responsible for working on a variety of a different projects with a variety of different languages and frameworks. This includes but is not limited to working with Python, FastAPI, openPyXl and MongoDB to add back-end Features to an application such as User Management and automatic generation of Excel reports. As well as creating the front-end for an application from the ground up using Asp.net core and Telerik UI, with automatic deployments to Azure using Github Actions.",
+		text: "As a Full Stack Developer I am responsible for working on a variety of a different projects with a variety of different languages and frameworks. This includes but is not limited to working with Python, FastAPI, openPyXl and MongoDB to add back-end Features to an application such as User Management and automatic generation of Excel reports. Creating the front-end for an application from the ground up using Asp.net core and Telerik UI, with automatic deployments to Azure using Github Actions. As well as working on a Nuxt 3 application in Typescript making use of Pinia Stores and Composables to efficiently handle data retreival and updates. This includes creating generic implementations to allow for easily explandable permissions and analytics generation.",
 		img: chartdimg,
 		url: "https://gochartd.com/"
 	},

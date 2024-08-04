@@ -26,32 +26,32 @@ const workProjects: ProjectData[] = [
     img: sodelic,
     title: "Sodelic",
     desc: "Chartd: Web Application",
-    text: "This program is the final group project for COMP 3106, I was primarily responsible for the implementation of A* and had to design the heuristic which would best optimize distance while factoring in the cost of products at each store. We used data scraped from UberEats and Time-Distance Matrix API from OpenRouteService.org",
-    skills: ["Vue3", "Nuxt3", "Pinia", "PrimeVue", "Typescript", "SCSS"]
+    text: "For this project I am primarily responsible for creating the front end infrastructure which allows for the efficient communication between the front end and backend project. This includes implmenting the data types used by the backend for communication, creating generic systems for permissions and data analytics which can be easily expanded as needed.",
+    skills: ["Vue3", "Nuxt3", "Pinia", "PrimeVue", "Typescript", "SCSS", "Web Sockets"]
   },
   {
     url: "https://chartd.ai/configuration_manager",
     img: confmgr,
     title: "Configuration Manager",
     desc: "Chartd: Web Application",
-    text: "This program is the final group project for COMP 3106, I was primarily responsible for the implementation of A* and had to design the heuristic which would best optimize distance while factoring in the cost of products at each store. We used data scraped from UberEats and Time-Distance Matrix API from OpenRouteService.org",
-    skills: ["C#","ASP.Net Core","HTML","CSS","Javascript"]
-  },
-  {
-    url: "https://tacklebox.piscesrpm.com/",
-    img: tacklebox,
-    title: "Tacklebox",
-    desc: "Pisces Research Project Management Inc: Web Application",
-    text: "This program is the final group project for COMP 3106, I was primarily responsible for the implementation of A* and had to design the heuristic which would best optimize distance while factoring in the cost of products at each store. We used data scraped from UberEats and Time-Distance Matrix API from OpenRouteService.org",
-    skills: ["Vue","Django","Python","MongoDB"]
+    text: "While working on this project I was mainly responsible for the creation of the majority of the front end pages. This included using Telerik UI to create forms with data validation and display tables with potentially 10,000+ records. This meant server side pagination needed to be implemented so the application would remain performant. This also included having regular meetings and demos with clients to take feedback and create the application which best suited their needs.",
+    skills: ["C#","ASP.Net Core","Telerik UI","HTML","CSS","Javascript"]
   },
   {
     url: "https://trackoffsets.com/",
     img: trackoffsets,
     title: "Track Offsets",
     desc: "Chartd: Web Application",
-    text: "This program is the final group project for COMP 3106, I was primarily responsible for the implementation of A* and had to design the heuristic which would best optimize distance while factoring in the cost of products at each store. We used data scraped from UberEats and Time-Distance Matrix API from OpenRouteService.org",
-    skills: ["FastAPI","Python","OpenPyXL","MongoDB"]
+    text: "While working on this project I fixed various bugs and added features to the existing FastAPI backend including a variety of endpoints for access and modifying data which I had created the models for, permissions management and the automatic generation of reports into various different formats including CSV and Excel using openPyXL to generate the spreadsheets.",
+    skills: ["FastAPI","Python","OpenPyXL","MongoDB", "Cognito"]
+  },
+  {
+    url: "https://tacklebox.piscesrpm.com/",
+    img: tacklebox,
+    title: "Tacklebox",
+    desc: "Pisces Research Project Management Inc: Web Application",
+    text: "While working on this project I was mainly responsible for adding features to the existing backend Django project as well as creating associated pages in a front end Vue application to support them. This included creating various models to store in the MongoDB database and creating serializers so that a RestAPI could be created allowing for interactions between the new Vue pages I created and the backend.",
+    skills: ["Vue","Django","Python","MongoDB"]
   },
 ]
 

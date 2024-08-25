@@ -86,7 +86,7 @@ function getFipped() {
     p {
       margin: 0;
       margin-top: 10px;
-      font-size: 1.1em;
+      font-size: 1em;
     }
 
     #subtitle{

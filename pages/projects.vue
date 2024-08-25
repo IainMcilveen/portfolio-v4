@@ -14,19 +14,13 @@ import trackoffsets from '~/assets/img/projects/trackoffsets.png';
 import tacklebox from '~/assets/img/projects/tacklebox.png';
 import poster from '~/assets/img/projects/poster.png';
 
-// add work projects
-// https://chartd.ai/configuration_manager
-// Sodelic
-// Track offsets
-// tacklebox
-
 const workProjects: ProjectData[] = [
   { 
     url: "https://sodelic.com/",
     img: sodelic,
     title: "Sodelic",
     desc: "Chartd: Web Application",
-    text: "For this project I am primarily responsible for creating the front end infrastructure which allows for the efficient communication between the front end and backend project. This includes implmenting the data types used by the backend for communication, creating generic systems for permissions and data analytics which can be easily expanded as needed.",
+    text: "For this project I am primarily responsible for creating the frontend infrastructure which allows for the efficient communication between the frontend and backend project. This includes implmenting the data types used by the backend for communication, creating generic systems for permissions and data analytics which can be easily expanded as needed.",
     skills: ["Vue3", "Nuxt3", "Pinia", "PrimeVue", "Typescript", "SCSS", "Web Sockets"]
   },
   {
@@ -34,7 +28,7 @@ const workProjects: ProjectData[] = [
     img: confmgr,
     title: "Configuration Manager",
     desc: "Chartd: Web Application",
-    text: "While working on this project I was mainly responsible for the creation of the majority of the front end pages. This included using Telerik UI to create forms with data validation and display tables with potentially 10,000+ records. This meant server side pagination needed to be implemented so the application would remain performant. This also included having regular meetings and demos with clients to take feedback and create the application which best suited their needs.",
+    text: "While working on this project I was mainly responsible for the creation of the majority of the frontend pages. This included using Telerik UI to create forms with data validation and display tables with potentially 10,000+ records. This meant server side pagination needed to be implemented so the application would remain performant. This also included having regular meetings and demos with clients to take feedback and create the application which best suited their needs.",
     skills: ["C#","ASP.Net Core","Telerik UI","HTML","CSS","Javascript"]
   },
   {
@@ -50,7 +44,7 @@ const workProjects: ProjectData[] = [
     img: tacklebox,
     title: "Tacklebox",
     desc: "Pisces Research Project Management Inc: Web Application",
-    text: "While working on this project I was mainly responsible for adding features to the existing backend Django project as well as creating associated pages in a front end Vue application to support them. This included creating various models to store in the MongoDB database and creating serializers so that a RestAPI could be created allowing for interactions between the new Vue pages I created and the backend.",
+    text: "While working on this project I was mainly responsible for adding features to the existing backend Django project as well as creating associated pages in a frontend Vue application to support them. This included creating various models to store in the MongoDB database and creating serializers so that a RestAPI could be created allowing for interactions between the new Vue pages I created and the backend.",
     skills: ["Vue","Django","Python","MongoDB"]
   },
 ]

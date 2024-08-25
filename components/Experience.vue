@@ -122,7 +122,7 @@ function getFipped() {
   height: 275px;
 }
 
-Experience-Box.flipped{
+.Experience-Box.flipped{
   flex-direction: row-reverse;
 
   .Experience-Image{

@@ -41,7 +41,7 @@ defineProps<{
   transition: 300ms ease all;
 
   width: 500px;
-  height: 450px;
+  height: 470px;
 
   background-color: $bgLight;
   border-radius: 2px;
@@ -97,12 +97,12 @@ defineProps<{
 
 .Project-Box:hover{
   width: 505px;
-  height: 455px;
+  height: 475px;
   box-shadow: 0 5px 5px $bgMid;
 }
 
 @media screen and (max-width: 440px){
-  $mobile-height: 450px;
+  $mobile-height: 600px;
 
   .Project-Box{
     margin: 0.5em 0.3em 0.5em 0.3em;
@@ -118,6 +118,14 @@ defineProps<{
   .Project-Box:hover{
     height: calc(#{$mobile-height} + 5px);
     box-shadow: 0 5px 5px $bgMid;
+  }
+
+  .Project-Skills {
+    flex-wrap: wrap;
+
+    .skill {
+      margin-bottom: 5px;
+    }
   }
 }
 

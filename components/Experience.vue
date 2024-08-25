@@ -122,7 +122,7 @@ function getFipped() {
   height: 275px;
 }
 
-.Experience-Box.flipped{
+Experience-Box.flipped{
   flex-direction: row-reverse;
 
   .Experience-Image{
@@ -150,7 +150,7 @@ $mobile-height: 560px;
 
 @media screen and (max-width: 640px){
 
-  .Experience-Box{
+  .Experience-Box, .Experience-Box.flipped{
         
     width: 95vw;
     height: $mobile-height;

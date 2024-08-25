@@ -152,6 +152,10 @@ const personalProjects: ProjectData[] = [
     color: $bgLight;
     width: 100vw;
     text-align: center;
+    
+    h3 {
+      margin: 0;
+    }
   }
 
   .Projects-Container {

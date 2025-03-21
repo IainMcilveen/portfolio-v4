@@ -62,7 +62,7 @@ const data: ExperienceData[] = [
 		title: "B.S.C. Computer Science (Honours) ",
 		desc: "Carleton University",
 		time: "September 2018 - April 2023",
-		text: "Competed a degree in Computer Science at Carleton University where I learned about a wide range of computer science related toimgs such as: Systems Programming, Software engineering, Web developement as well as many others.",
+		text: "Competed a degree in Computer Science at Carleton University where I learned about a wide range of computer science related topics such as: Systems Programming, Software engineering, Web developement as well as many others.",
 		img: carletonimg,
 		url: "https://carleton.ca/"
 	}

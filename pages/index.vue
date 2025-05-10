@@ -24,7 +24,7 @@
                 </div>
                 <div class="resume">
                     <a
-                        href="https://drive.google.com/file/d/1P-3NAXoleGS5Vkq5UAQbExlAARSXi4PA/view?usp=share_link"
+                        href="https://drive.google.com/file/d/1GV-1k8kDxFJT-x43vYvVBi9MX2CrEBSl/view?usp=sharing"
                         >Resume</a
                     >
                     <a href="https://github.com/IainMcilveen">GitHub</a>

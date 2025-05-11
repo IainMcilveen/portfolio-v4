@@ -67,8 +67,9 @@ const data: ExperienceData[] = [
     },
 ];
 
-definePageMeta({
-    name: "Experiences",
+const title = ref("Experiences");
+useHead({
+    title,
 });
 </script>
 

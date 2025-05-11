@@ -1,6 +1,7 @@
 <script setup lang="ts">
-definePageMeta({
-    name: "Home",
+const title = ref("Home");
+useHead({
+    title,
 });
 </script>
 

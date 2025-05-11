@@ -66,6 +66,10 @@ const data: ExperienceData[] = [
         url: "https://carleton.ca/",
     },
 ];
+
+definePageMeta({
+    title: "Experiences",
+});
 </script>
 
 <template>

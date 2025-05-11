@@ -117,7 +117,7 @@ const personalProjects: ProjectData[] = [
         title: "Pathfinding visualizer",
         desc: "Algorithms",
         text: "I wrote this application as a way to visualize the A star pathfinding algorithm, allowing the user to create different obstacles and set a start and end point for the algorithm to use. It was written in python using pygame to display the graphics.",
-        skills: ["Python", "Pygame"],
+        skills: ["Python", "Pygame", "Algorithms"],
     },
     {
         url: "https://github.com/IainMcilveen/termtris",
@@ -152,6 +152,10 @@ const personalProjects: ProjectData[] = [
         skills: ["Vue3", "Nuxt3", "SCSS", "Typescript"],
     },
 ];
+
+definePageMeta({
+    title: "Projects",
+});
 </script>
 
 <template>

@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+    title: "Home",
+});
+</script>
 
 <template>
     <div class="App-main">

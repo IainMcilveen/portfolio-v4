@@ -154,7 +154,7 @@ const personalProjects: ProjectData[] = [
 ];
 
 definePageMeta({
-    title: "Projects",
+    name: "Projects",
 });
 </script>
 

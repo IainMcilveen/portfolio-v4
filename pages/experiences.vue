@@ -68,7 +68,7 @@ const data: ExperienceData[] = [
 ];
 
 definePageMeta({
-    title: "Experiences",
+    name: "Experiences",
 });
 </script>
 

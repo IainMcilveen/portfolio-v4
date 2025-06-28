@@ -91,7 +91,7 @@ const personalProjects: ProjectData[] = [
   {
     url: "https://github.com/IainMcilveen/comp3005pg",
     img: database,
-    title: "COMP 3005 Database Project",
+    title: "Online Bookstore",
     desc: "Web Application",
     text: "This program is my final project for COMP 3005, it is a web application designed to be the platform for a online book store. I made use of postgreSQL to store book and order information, and NodeJS for the backend. For the frontend, I made use of Pug for the templates which pull information from the database.",
     skills: ["NodeJS", "Express", "Javascript", "Pug", "PostgreSQL"],
@@ -137,12 +137,12 @@ const personalProjects: ProjectData[] = [
     skills: ["Java", "AWT"],
   },
   {
-    url: "https://github.com/IainMcilveen/portfolio-v3",
+    url: "https://github.com/IainMcilveen/portfolio-v4",
     img: portfolio,
     title: "Portfolio",
     desc: "Web Application",
-    text: "This is my portfolio website which you are currently viewing! This was written using Vue with Sass styling and was created to demonstrate my current projects, skills and experience. I designed to work well on the desktop as well as on mobile devices.",
-    skills: ["Vue3", "Nuxt3", "SCSS", "Typescript"],
+    text: "This is my portfolio website which you are currently viewing! This was written in Nuxt.js with Sass styling and was created to demonstrate my current projects, skills and experience. It makes use of Github actions to compress images, and deploy to github pages when changes are pushed.",
+    skills: ["Vue3", "Nuxt3", "SCSS", "Typescript", "Github Actions"],
   },
 ];
 

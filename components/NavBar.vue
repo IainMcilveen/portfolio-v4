@@ -19,7 +19,7 @@ const data: NavItem[] = [
   },
   {
     text: "Resume",
-    url: "https://drive.google.com/file/d/1GV-1k8kDxFJT-x43vYvVBi9MX2CrEBSl/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link",
   },
 ];
 

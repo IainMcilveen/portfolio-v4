@@ -13,6 +13,7 @@ import sodelic from "~/assets/img/projects/sodelic.png";
 import trackoffsets from "~/assets/img/projects/trackoffsets.png";
 import tacklebox from "~/assets/img/projects/tacklebox.png";
 import poster from "~/assets/img/projects/poster.png";
+import stickynoter from "~/assets/img/projects/stickynoter.png"
 
 const workProjects: ProjectData[] = [
   {
@@ -72,6 +73,14 @@ const workProjects: ProjectData[] = [
 ];
 
 const personalProjects: ProjectData[] = [
+  {
+    url: "https://github.com/IainMcilveen/StickyNoter",
+    img: stickynoter,
+    title: "Sticky Noter",
+    desc: "Full Stack Web Application",
+    text: "This application allows you to create, edit, delete, and move sticky notes around the web page. The sticky notes contain a rich text editor allowing the user to easily format the contents of each note.",
+    skills: ["Javascript", "Vue3", "Tailwind", "Node.js", "Express", "MongoDB", "Mongoose"],
+  },
   {
     url: "https://github.com/IainMcilveen",
     img: poster,

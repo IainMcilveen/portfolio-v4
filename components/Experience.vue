@@ -142,6 +142,12 @@ function getFipped() {
 
 $mobile-height: 560px;
 
+@media screen and (max-width: 1400px) {
+  .Experience-Box {
+    height: max(300px,calc(1320px - 100vw));
+  }
+}
+
 @media screen and (max-width: 640px) {
   .Experience-Box,
   .Experience-Box.flipped {

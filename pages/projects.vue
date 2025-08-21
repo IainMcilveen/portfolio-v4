@@ -79,7 +79,7 @@ const personalProjects: ProjectData[] = [
     title: "Sticky Noter",
     desc: "Full Stack Web Application",
     text: "This application allows you to create, edit, delete, and move sticky notes around the web page. The sticky notes contain a rich text editor allowing the user to easily format the contents of each note.",
-    skills: ["Javascript", "Vue3", "Tailwind", "Node.js", "Express", "MongoDB", "Mongoose"],
+    skills: ["Javascript", "Vue3", "Tailwind", "Node.js", "Express", "MongoDB", "Mongoose", "Docker"],
   },
   {
     url: "https://github.com/IainMcilveen",

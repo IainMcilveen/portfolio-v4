@@ -17,9 +17,9 @@ const props = defineProps<{
 
 const height = computed(() => {
   if (props.project.big) {
-    return "535px";
+    return "545px";
   } else {
-    return "450px";
+    return "460px";
   }
 });
 
@@ -42,6 +42,7 @@ const hoverHeight = computed(() => {
       <h4 v-else>{{ project.title }}</h4>
       <h6>{{ project.desc }}</h6>
     </div>
+    <hr />
     <div class="Project-Info">
       <p>{{ project.text }}</p>
     </div>
@@ -85,7 +86,7 @@ const hoverHeight = computed(() => {
       color: $bgDark;
     }
     h6 {
-      font-size: 17px;
+      font-size: 18px;
       margin-top: 0;
       margin-bottom: 2px;
     }
@@ -120,8 +121,8 @@ const hoverHeight = computed(() => {
 }
 
 .Project-Box:hover {
-  width: 505px;
-  height: v-bind("hoverHeight");
+  //width: 505px;
+  //height: v-bind("hoverHeight");
   box-shadow: 0 5px 5px $bgMid;
 }
 
@@ -139,8 +140,8 @@ const hoverHeight = computed(() => {
   }
 
   .Project-Box:hover {
-    height: calc(#{$mobile-height} + 5px);
-    box-shadow: 0 5px 5px $bgMid;
+    //height: calc(#{$mobile-height} + 5px);
+    box-shadow: 0 7px 7px $bgMid;
   }
 
   .Project-Skills {

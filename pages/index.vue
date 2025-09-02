@@ -17,13 +17,12 @@ useHead({
           <hr />
           <p>
             Hello there! I am a software developer based out of Halifax, Canada.
-            I have 4+ years experience working in various development roles and
+            Currently I work as a Software Engineer for <a href="https://www.softwaresecured.com/">Software Secured</a> and
             have a Computer Science degree from
             <a href="https://carleton.ca/">Carleton University.</a>
           </p>
           <p>
-            I am passionate about all things computer science and enjoy learning
-            new things.
+            I am passionate about all things computer science and enjoy learning new things. Outside of work I love cycling and volunteer at <a href="https://ecologyaction.ca/our-work/transportation/bike-again">Bike Again</a> helping people fix their bikes!
           </p>
         </div>
         <div class="resume">
@@ -76,13 +75,6 @@ useHead({
       margin: auto;
       max-width: 50vw;
       padding: 1em;
-
-      hr {
-        color: #949494;
-        border: 0;
-        border-bottom: 2px dashed;
-        margin: 2px;
-      }
 
       h1 {
         margin: 0;

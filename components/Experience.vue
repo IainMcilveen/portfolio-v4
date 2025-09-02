@@ -28,7 +28,8 @@ function getFipped() {
         <h2>{{ experience.title }}</h2>
         <h4>{{ experience.desc }}</h4>
       </div>
-      <h4>{{ experience.time }}</h4>
+      <h4 class="time">{{ experience.time }}</h4>
+      <hr />
       <p>{{ experience.text }}</p>
     </div>
     <div class="Experience-Image">
@@ -50,7 +51,7 @@ function getFipped() {
   background-color: $bgLight;
 
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
 
   text-align: left;
@@ -74,16 +75,21 @@ function getFipped() {
 
     h2 {
       margin: 0;
-      margin-bottom: 5px;
     }
 
     h4 {
       margin: 0;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .time {
+      font-size: 16px;
     }
 
     p {
       margin: 0;
-      margin-top: 10px;
+      margin-top: 5px;
       font-size: 1.2em;
     }
 
@@ -112,9 +118,9 @@ function getFipped() {
 }
 
 .Experience-Box:hover {
-  box-shadow: 0 7px 7px $bgDark;
-  width: calc(85vw + 5px);
-  height: 275px;
+  box-shadow: 0 4px 4px $bgMid;
+  //width: calc(85vw + 5px);
+  //height: 275px;
 }
 
 .Experience-Box.flipped {
@@ -206,8 +212,8 @@ $mobile-height: 560px;
   }
 
   .Experience-Box:hover {
-    height: calc(#{$mobile-height} + 5px);
-    width: 95vw;
+    //height: calc(#{$mobile-height} + 5px);
+    //width: 95vw;
   }
 }
 </style>

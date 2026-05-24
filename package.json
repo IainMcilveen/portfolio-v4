@@ -10,15 +10,15 @@
         "postinstall": "nuxt prepare"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^6.6.0",
-        "@fortawesome/free-brands-svg-icons": "^6.6.0",
-        "@fortawesome/free-regular-svg-icons": "^6.6.0",
-        "@fortawesome/free-solid-svg-icons": "^6.6.0",
-        "@fortawesome/vue-fontawesome": "^3.0.8",
-        "nuxt": "^3.12.4",
+        "@fortawesome/fontawesome-svg-core": "^7.2.0",
+        "@fortawesome/free-brands-svg-icons": "^7.2.0",
+        "@fortawesome/free-regular-svg-icons": "^7.2.0",
+        "@fortawesome/free-solid-svg-icons": "^7.2.0",
+        "@fortawesome/vue-fontawesome": "^3.2.0",
+        "nuxt": "^4.4.6",
         "vue": "latest"
     },
     "devDependencies": {
-        "sass": "^1.77.8"
+        "sass": "^1.100.0"
     }
 }

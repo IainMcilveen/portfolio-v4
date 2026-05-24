@@ -59,11 +59,13 @@ const iClass = computed(() => {
 
 <style lang="scss" scoped>
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   height: 40px;
   width: 100vw;
   background-color: #282c34;
-  //z-index: 1;
-  //position: fixed;
 
   transition: 300ms ease all;
 }
@@ -75,17 +77,18 @@ const iClass = computed(() => {
   margin-block-start: 0;
   margin-block-end: 0;
   height: 100%;
-  align-items: center;
+  align-items: stretch;
 
   figure {
     width: 15px;
     margin: 0;
     padding: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .visible {
-      position: relative;
-      bottom: 5px;
       border: solid white;
       border-width: 0 3px 3px 0;
       display: inline-block;
@@ -107,9 +110,10 @@ const iClass = computed(() => {
   .navbar-element {
     transition: 250ms ease all;
 
+    display: flex;
     align-items: center;
     border-radius: 2px;
-    padding: 5px 8px 8px 5px;
+    padding: 0 8px;
     list-style-type: none;
     cursor: pointer;
   }

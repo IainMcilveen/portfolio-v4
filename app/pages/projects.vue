@@ -162,50 +162,61 @@ useHead({
 </script>
 
 <template>
-  <div class="Projects">
-    <div class="Section-Description">
-      <h2>Work Projects</h2>
-    </div>
-    <div class="Projects-Container">
-      <Project
-        v-for="(exp, index) in workProjects"
-        :project="exp"
-        :key="'Project' + index"
-      />
-    </div>
-    <div class="Section-Description">
-      <h2>Personal Projects</h2>
-    </div>
-    <div class="Projects-Container">
-      <Project
-        v-for="(exp, index) in personalProjects"
-        :project="exp"
-        :key="'Project' + index"
-      />
+  <div class="projects-page">
+    <ParticleBackground />
+    <div class="projects-content">
+      <div class="section-heading"><h2>Work Projects</h2></div>
+      <div class="projects-grid">
+        <Project
+          v-for="(project, index) in workProjects"
+          :project="project"
+          :key="'Work' + index"
+        />
+      </div>
+      <div class="section-heading"><h2>Personal Projects</h2></div>
+      <div class="projects-grid">
+        <Project
+          v-for="(project, index) in personalProjects"
+          :project="project"
+          :key="'Personal' + index"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.Projects {
+.projects-page {
+  position: relative;
+  min-height: 100%;
+  background-color: #1a1d23;
   overflow-x: hidden;
-  background-color: $bgDark;
+}
 
-  .Section-Description {
-    color: $bgLight;
-    width: 100vw;
-    text-align: center;
+.projects-content {
+  position: relative;
+  z-index: 1;
+  padding: 24px 0 40px;
+}
 
-    h3 {
-      margin: 0;
-    }
+.section-heading {
+  text-align: center;
+  padding: 16px 0 8px;
+
+  h2 {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba(99, 179, 237, 0.4);
   }
+}
 
-  .Projects-Container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 1.5em;
+  padding: 8px 24px;
 }
 </style>

@@ -1,40 +1,52 @@
 <script setup lang="ts">
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faEnvelope, faFileLines } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+
 const title = ref("Home");
-useHead({
-  title,
-});
+useHead({ title });
 </script>
 
 <template>
-  <div class="App-main">
-    <div class="About">
+  <div class="page-home">
+    <ParticleBackground />
+    <div class="card">
       <div class="profile">
         <img src="~/assets/img/profile.jpg" alt="Picture of Me" />
       </div>
       <div class="intro">
-        <div class="introText">
+        <div class="intro-text">
           <h1>Iain Mcilveen</h1>
           <hr />
           <p>
             Hello there! I am a software developer based out of Halifax, Canada.
-            Currently I work as a Software Engineer for <a href="https://www.softwaresecured.com/">Software Secured</a> and
+            Currently I work as a Software Engineer for
+            <a href="https://www.softwaresecured.com/">Software Secured</a> and
             have a Computer Science degree from
             <a href="https://carleton.ca/">Carleton University.</a>
           </p>
           <p>
-            I am passionate about all things computer science and enjoy learning new things. Outside of work I love cycling and volunteer at <a href="https://ecologyaction.ca/our-work/transportation/bike-again">Bike Again</a> helping people fix their bikes!
+            I am passionate about all things computer science and enjoy learning
+            new things. Outside of work I love cycling and volunteer at
+            <a href="https://ecologyaction.ca/our-work/transportation/bike-again"
+              >Bike Again</a
+            >
+            helping people fix their bikes!
           </p>
         </div>
-        <div class="resume">
-          <a
-            href="https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link"
-            >Resume</a
-          >
-          <a href="https://github.com/IainMcilveen">GitHub</a>
-          <a href="https://www.linkedin.com/in/iain-mcilveen-64b14a185/"
-            >Linkedin</a
-          >
-          <a href="mailto:IainMcilveen@outlook.com">Email</a>
+        <div class="links">
+          <a href="https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link">
+            <FontAwesomeIcon :icon="faFileLines" />Resume
+          </a>
+          <a href="https://github.com/IainMcilveen">
+            <FontAwesomeIcon :icon="faGithub" />GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/iain-mcilveen-64b14a185/">
+            <FontAwesomeIcon :icon="faLinkedinIn" />LinkedIn
+          </a>
+          <a href="mailto:IainMcilveen@outlook.com">
+            <FontAwesomeIcon :icon="faEnvelope" />Email
+          </a>
         </div>
       </div>
     </div>
@@ -42,118 +54,124 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-.App-main {
-  background-color: $bgDark;
-  color: $bgLight;
-  height: 100%;
-  width: 100%;
+.page-home {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1d23;
+  overflow: hidden;
+}
 
-  .About {
-    display: flex;
-    width: 80%;
-    height: 100%;
-    margin: auto;
+.card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3.5rem 4rem;
+  background: rgba(40, 44, 52, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(99, 179, 237, 0.18);
+  border-radius: 18px;
+  max-width: 1200px;
+  width: 94%;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.45);
+}
 
-    .profile {
-      margin: auto;
-      padding: 0.5em;
-      padding-right: 2em;
+.profile {
+  flex-shrink: 0;
 
-      width: 35vw;
-      height: 30vw;
-
-      img {
-        border-radius: 5px;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .intro {
-      color: $bgLight;
-      margin: auto;
-      max-width: 50vw;
-      padding: 1em;
-
-      h1 {
-        margin: 0;
-        margin-bottom: 0.25em;
-        text-align: center;
-      }
-
-      p {
-        margin: 0;
-        margin-top: 0.25em;
-        margin-bottom: 0.75em;
-        text-align: left;
-        font-size: 1.1em;
-      }
-
-      .introText {
-        a {
-          color: lightblue;
-          text-decoration: none;
-        }
-      }
-
-      .resume {
-        text-align: center;
-        padding-top: 10px;
-        a {
-          transition: 300ms ease all;
-          padding: 5px;
-          margin-right: 5px;
-          border-radius: 5px;
-          color: $bgLight;
-          text-decoration: none;
-        }
-        a:hover {
-          color: white;
-          background-color: #181b20;
-        }
-      }
-    }
-    //font-size: calc(10px + 1vmin);
+  img {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(99, 179, 237, 0.45);
+    box-shadow: 0 0 32px rgba(99, 179, 237, 0.18);
   }
 }
 
-@media screen and (max-width: 850px) {
-  .App-main {
-    height: 100vh;
+.intro {
+  color: $bgLight;
 
-    .About {
-      flex-direction: column;
-      align-items: center;
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2.4rem;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
 
-      width: 100vw;
-      padding: 0;
+  hr {
+    border: none;
+    border-top: 1px solid rgba(99, 179, 237, 0.3);
+    margin-bottom: 0.85rem;
+  }
 
-      .profile {
-        margin: auto;
-        margin-bottom: 0.5em;
-        padding: 0;
-        width: 75vw;
-        height: 75vw;
+  p {
+    margin: 0 0 0.75rem;
+    font-size: 1.15em;
+    line-height: 1.65;
+  }
 
-        display: flex;
-        justify-content: center;
+  .intro-text a {
+    color: #7ec8e3;
+    text-decoration: none;
 
-        img {
-          object-fit: cover;
-          max-width: 475px;
-          width: 90%;
-          height: 100%;
-        }
-      }
-
-      .intro {
-        margin: auto;
-        margin-top: 0.5em;
-        max-width: 90%;
-        width: 90%;
-      }
+    &:hover {
+      text-decoration: underline;
     }
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.38rem 1.15rem;
+    border: 1px solid rgba(99, 179, 237, 0.35);
+    border-radius: 999px;
+    color: $bgLight;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    background: rgba(99, 179, 237, 0.07);
+
+    &:hover {
+      background: rgba(99, 179, 237, 0.22);
+      border-color: rgba(99, 179, 237, 0.65);
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .profile img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .intro h1 {
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center;
   }
 }
 </style>

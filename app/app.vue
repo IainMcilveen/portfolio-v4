@@ -10,9 +10,11 @@ html * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
   margin: 0;
   width: 100vw;
+  background-color: #1a1d23;
 }
 
 hr {

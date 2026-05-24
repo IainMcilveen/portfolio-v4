@@ -15,141 +15,117 @@ const props = defineProps<{
   project: ProjectData;
 }>();
 
-const height = computed(() => {
-  if (props.project.big) {
-    return "545px";
-  } else {
-    return "460px";
-  }
-});
 
-const hoverHeight = computed(() => {
-  if (props.project.big) {
-    return "540px";
-  } else {
-    return "455px";
-  }
-});
 </script>
 
 <template>
-  <div class="Project-Box">
-    <LinkableImage :img="project.img" :url="project.url ?? ''" height="250px" />
-    <div class="Project-Title">
-      <a v-if="project.url !== ''" :href="project.url"
-        ><h4>{{ project.title }}</h4></a
-      >
-      <h4 v-else>{{ project.title }}</h4>
-      <h6>{{ project.desc }}</h6>
+  <div class="project-card">
+    <div class="project-image">
+      <LinkableImage :img="project.img" :url="project.url ?? ''" height="200px" />
     </div>
-    <hr />
-    <div class="Project-Info">
-      <p>{{ project.text }}</p>
-    </div>
-    <div class="Project-Skills">
-      <div
-        v-for="(skill, index) in project.skills"
-        :key="'skill-' + index"
-        class="skill"
-      >
-        {{ skill }}
+    <div class="project-body">
+      <div class="project-title">
+        <a v-if="project.url" :href="project.url">
+          <h4>{{ project.title }}</h4>
+        </a>
+        <h4 v-else>{{ project.title }}</h4>
+        <h6 v-if="project.desc">{{ project.desc }}</h6>
+      </div>
+      <hr />
+      <p class="project-text">{{ project.text }}</p>
+      <div class="project-skills">
+        <span v-for="(skill, i) in project.skills" :key="i" class="skill">{{ skill }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.Project-Box {
-  transition: 300ms ease all;
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
 
-  width: 500px;
-  height: v-bind("height");
+  background: rgba(40, 44, 52, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(99, 179, 237, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
 
-  background-color: $bgLight;
-  border-radius: 2px;
-
-  margin: 1em 1.35em 1em 1.35em;
-  padding: 5px;
-
-  text-align: left;
-
-  .Project-Title {
-    a {
-      text-decoration: none;
-      color: $bgDark;
-    }
-    h4 {
-      font-size: 24px;
-      margin: 5px;
-      margin-left: 0;
-      margin-bottom: 0;
-      color: $bgDark;
-    }
-    h6 {
-      font-size: 18px;
-      margin-top: 0;
-      margin-bottom: 2px;
-    }
-    p {
-      font-size: 15px;
-      margin: 7px 0 0 0;
-    }
-  }
-
-  .Project-Info {
-    p {
-      margin: 3px 5px 0 0;
-    }
-  }
-
-  .Project-Skills {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 15px;
-    padding-bottom: 5px;
-    justify-content: center;
-
-    .skill {
-      padding: 5px;
-      margin-right: 5px;
-      margin-bottom: 5px;
-      background-color: lightcyan;
-      border-radius: 5px;
-    }
+  &:hover {
+    border-color: rgba(99, 179, 237, 0.35);
+    box-shadow: 0 6px 36px rgba(0, 0, 0, 0.55);
   }
 }
 
-.Project-Box:hover {
-  //width: 505px;
-  //height: v-bind("hoverHeight");
-  box-shadow: 0 5px 5px $bgMid;
+.project-image {
+  flex-shrink: 0;
+  height: 200px;
+  border-bottom: 1px solid rgba(99, 179, 237, 0.12);
 }
 
-@media screen and (max-width: 440px) {
-  $mobile-height: 600px;
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px 14px 10px;
 
-  .Project-Box {
-    margin: 0.5em 0.3em 0.5em 0.3em;
-    height: $mobile-height;
+  hr {
+    border: none;
+    border-top: 1px solid rgba(99, 179, 237, 0.2);
+    margin: 6px 0;
+  }
+}
 
-    .Project-Image {
-      height: 30%;
-      width: 100%;
-    }
+.project-title {
+  a {
+    text-decoration: none;
   }
 
-  .Project-Box:hover {
-    //height: calc(#{$mobile-height} + 5px);
-    box-shadow: 0 7px 7px $bgMid;
+  h4 {
+    margin: 0 0 2px;
+    font-size: 1.1rem;
+    color: #7ec8e3;
   }
 
-  .Project-Skills {
-    flex-wrap: wrap;
+  h6 {
+    margin: 0;
+    font-size: 0.82rem;
+    color: $bgMid;
+    font-weight: normal;
+  }
+}
 
-    .skill {
-      margin-bottom: 5px;
-    }
+.project-text {
+  margin: 0;
+  font-size: 0.88em;
+  color: $bgLight;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.project-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-top: 8px;
+
+  .skill {
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    background: rgba(99, 179, 237, 0.1);
+    border: 1px solid rgba(99, 179, 237, 0.28);
+    border-radius: 999px;
+    color: #7ec8e3;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .project-card {
+    width: 100%;
   }
 }
 </style>

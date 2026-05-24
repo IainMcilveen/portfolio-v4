@@ -6,214 +6,153 @@ export interface ExperienceData {
   time: string;
   desc?: string;
   text: string;
+  skills?: string[];
 }
 
 const props = defineProps<{
   experience: ExperienceData;
   flipped: boolean;
 }>();
-
-function getFipped() {
-  if (props.flipped) {
-    return "flipped";
-  }
-  return "";
-}
 </script>
 
 <template>
-  <div :class="'Experience-Box ' + getFipped()">
-    <div class="Experience-Info">
-      <div class="Experience-Title">
+  <div :class="['experience-card', { flipped }]">
+    <div class="experience-info">
+      <div class="experience-header">
         <h2>{{ experience.title }}</h2>
-        <h4>{{ experience.desc }}</h4>
+        <span v-if="experience.desc" class="company">{{ experience.desc }}</span>
+        <span class="time">{{ experience.time }}</span>
       </div>
-      <h4 class="time">{{ experience.time }}</h4>
       <hr />
       <p>{{ experience.text }}</p>
-    </div>
-    <div class="Experience-Image">
-      <div class="Image-Container">
-        <LinkableImage
-          :img="experience.img"
-          :url="experience.url"
-          height="100%"
-        />
+      <div v-if="experience.skills?.length" class="experience-skills">
+        <span v-for="(skill, i) in experience.skills" :key="i" class="skill">{{ skill }}</span>
       </div>
+    </div>
+    <div class="experience-image">
+      <LinkableImage :img="experience.img" :url="experience.url" height="100%" objectFit="contain" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.Experience-Box {
-  transition: 200ms ease all;
-
-  background-color: $bgLight;
-
-  margin: auto;
-  margin-bottom: 12px;
+.experience-card {
   display: flex;
+  width: 88vw;
+  max-width: 1100px;
+  margin: 0 auto 16px;
 
-  text-align: left;
+  background: rgba(40, 44, 52, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(99, 179, 237, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+  min-height: 200px;
+  overflow: hidden;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
 
-  width: 85vw;
-  height: 250px;
+  &:hover {
+    border-color: rgba(99, 179, 237, 0.35);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.55);
+  }
 
-  box-shadow: 0 3px 3px $bgDark;
-  border-radius: 0.15em;
-  .Experience-Info {
-    display: flex;
+  &.flipped {
+    flex-direction: row-reverse;
+  }
+}
+
+.experience-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  min-width: 0;
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba(99, 179, 237, 0.25);
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.93em;
+    color: $bgLight;
+    line-height: 1.55;
+  }
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-top: 10px;
+
+  .skill {
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    background: rgba(99, 179, 237, 0.1);
+    border: 1px solid rgba(99, 179, 237, 0.28);
+    border-radius: 999px;
+    color: #7ec8e3;
+  }
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .company {
+    font-size: 0.9rem;
+    color: #7ec8e3;
+  }
+
+  .time {
+    font-size: 0.8rem;
+    color: $bgMid;
+  }
+}
+
+.experience-image {
+  flex-shrink: 0;
+  width: 38%;
+  min-height: 200px;
+  background-color: #fff;
+  border-left: 1px solid rgba(99, 179, 237, 0.12);
+
+  .experience-card.flipped & {
+    border-left: none;
+    border-right: 1px solid rgba(99, 179, 237, 0.12);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .experience-card,
+  .experience-card.flipped {
     flex-direction: column;
-    width: 50%;
-    margin-right: 10px;
-    padding: 10px;
-    padding-right: 0;
+    width: 92vw;
+    height: auto;
+  }
 
-    .Experiences-Title {
-      margin-top: 10px;
-    }
+  .experience-image {
+    width: 100%;
+    height: 180px;
+    border-left: none;
+    border-top: 1px solid rgba(99, 179, 237, 0.12);
 
-    h2 {
-      margin: 0;
-    }
-
-    h4 {
-      margin: 0;
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    .time {
-      font-size: 16px;
-    }
-
-    p {
-      margin: 0;
-      margin-top: 5px;
-      font-size: 1.2em;
-    }
-
-    #subtitle {
-      margin: 0;
-      text-align: left;
+    .flipped & {
+      border-right: none;
+      border-top: 1px solid rgba(99, 179, 237, 0.12);
     }
   }
 
-  .Experience-Image {
-    padding: 10px;
-    padding-left: 0px;
-    width: 50%;
-
-    .Image-Container {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-
-    .img-loading {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.Experience-Box:hover {
-  box-shadow: 0 4px 4px $bgMid;
-  //width: calc(85vw + 5px);
-  //height: 275px;
-}
-
-.Experience-Box.flipped {
-  flex-direction: row-reverse;
-
-  .Experience-Image {
-    padding-left: 10px;
-    padding-right: 0;
-  }
-
-  .Experience-Info {
-    padding-left: 0;
-    padding-right: 10px;
-
-    margin-right: 0;
-    margin-left: 10px;
-
-    h2,
-    h4,
-    p {
-      margin-right: 0;
-    }
-  }
-}
-
-$mobile-height: 560px;
-
-@media screen and (max-width: 1400px) {
-  .Experience-Box {
-    height: max(300px,calc(1320px - 100vw));
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .Experience-Box,
-  .Experience-Box.flipped {
-    width: 95vw;
-    height: $mobile-height;
-
-    display: block;
-    overflow: hidden;
-
-    .Experience-Info {
-      padding: 3px;
-      margin: 0;
-
-      align-items: center;
-      width: 100%;
-
-      p,
-      h4,
-      h2 {
-        margin: 5px;
-      }
-
-      h2,
-      h4 {
-        text-align: center;
-      }
-
-      h2 {
-        font-size: 1.3em;
-      }
-
-      h4 {
-        margin: 0;
-        font-size: 0.9em;
-      }
-
-      p {
-        font-size: 0.95em;
-      }
-    }
-
-    .Experience-Image {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      width: 100%;
-      padding: 3px;
-
-      img {
-        object-fit: scale-down;
-        width: 99%;
-        height: 100%;
-      }
-    }
-  }
-
-  .Experience-Box:hover {
-    //height: calc(#{$mobile-height} + 5px);
-    //width: 95vw;
-  }
 }
 </style>

@@ -7,11 +7,13 @@ interface IProps {
   img: string;
   height?: string;
   width?: string;
+  objectFit?: string;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   height: "50%",
   width: "100%",
+  objectFit: "cover",
 });
 
 const img_loaded = ref(false);
@@ -27,6 +29,9 @@ const ImageStyles = computed(() => {
 
 <template>
   <ClientOnly>
+    <template #fallback>
+      <div class="Image" :style="ImageStyles" />
+    </template>
     <div class="Image" :style="ImageStyles">
       <a v-if="url !== ''" :href="url">
         <img v-show="img_loaded" :src="img" @load="setLoaded()" />
@@ -48,15 +53,22 @@ const ImageStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.Image {
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 img {
-  object-fit: cover;
+  object-fit: v-bind("props.objectFit");
   width: 100%;
   height: 100%;
 }
 
 .img-loading {
-  width: 100%;
-  height: 100%;
-  min-height: 150px;
+  width: v-bind("props.width");
+  height: v-bind("props.height");
 }
 </style>

@@ -2,6 +2,7 @@
 interface NavItem {
   text: string;
   url: string;
+  external?: boolean;
 }
 
 const data: NavItem[] = [
@@ -20,6 +21,7 @@ const data: NavItem[] = [
   {
     text: "Resume",
     url: "https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link",
+    external: true,
   },
 ];
 
@@ -51,7 +53,7 @@ const iClass = computed(() => {
         @mouseover="hoverIndex = index"
         @mouseleave="hoverIndex = -1"
       >
-        <a class="navbar-link" :href="option.url">{{ option.text }}</a>
+        <a class="navbar-link" :href="option.url" :target="option.external ? '_blank' : undefined" :rel="option.external ? 'noopener noreferrer' : undefined">{{ option.text }}</a>
       </li>
     </ul>
   </nav>

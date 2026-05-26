@@ -7,32 +7,60 @@ import mctdevice from "~/assets/img/projects/mctdevice.png";
 import pathfinding from "~/assets/img/projects/pathfinding.gif";
 import pokemon from "~/assets/img/projects/pokemon.png";
 import termtris from "~/assets/img/projects/termtris.gif";
-import portfolio from "~/assets/img/projects/portfolio.png";
+import portfolio from "~/assets/img/projects/portfolio.jpg";
 import confmgr from "~/assets/img/projects/confmgr.jpeg";
-import sodelic from "~/assets/img/projects/sodelic.png";
+import sodelic from "~/assets/img/projects/sodelic.jpg";
 import trackoffsets from "~/assets/img/projects/trackoffsets.png";
 import tacklebox from "~/assets/img/projects/tacklebox.png";
 import poster from "~/assets/img/projects/poster.png";
 import stickynoter from "~/assets/img/projects/stickynoter.png"
+import portal from "~/assets/img/projects/portal.jpg"
 
 const workProjects: ProjectData[] = [
+  {
+    url: "https://www.softwaresecured.com/portal",
+    img: portal,
+    title: "Portal",
+    desc: "Software Secured: Vulnerability Management Platform",
+    text: "While working on this project was responsible for, building new features, improving performance, and strengthening security across a large scale Nuxt.js and Express application. I architected Azure DevOps and GitHub integrations, implemented centralized Sentry error logging to improve observability, and helped lead a major frontend and backend refactor focused on performance, maintainability, and security. This included refactoring authentication middleware, replacing the CSRF implementation, improving session management flows, working with AWS ECS and Terraform infrastructure, and helping build an extensive suite of Unit and Pact tests.",
+    skills: [
+      "Typescript",
+      "Vue.js",
+      "Nuxt.js",
+      "Pinia",
+      "Chart.js",
+      "Shadcn",
+      "Express",
+      "PostgreSQL",
+      "TypeORM",
+      "AWS",
+      "Terraform",
+      "Docker",
+      "OAuth2",
+      "GraphQL",
+      "Sentry",
+      "Github Actions",
+    ],
+    big: true,
+  },
   {
     url: "https://sodelic.com/",
     img: sodelic,
     title: "Sodelic",
-    desc: "Chartd: Web Application",
+    desc: "Chartd: Project Scope Management Software",
     text: "For this project, I led the design on several core components and features. This includes the user authentication and permissions components, the handler for all communications with the backend API, an export module for exporting data to CSV or Excel as needed and many others. I was responsible for creating end-to-end tests using Cypress which were incorporated into the CI/CD pipeline using Github Actions insuring all changes were validated before deployment.",
     skills: [
       "Typescript",
-      "Vue3",
-      "Nuxt3",
+      "Vue.js",
+      "Nuxt.js",
       "Pinia",
       "PrimeVue",
       "PrimeFlex",
       "Cypress",
-      "Github Actions",
       "Python",
       "FastAPI",
+      "Chart.js",
+      "Github Actions",
     ],
     big: true,
   },
@@ -48,17 +76,17 @@ const workProjects: ProjectData[] = [
     url: "https://trackoffsets.com/",
     img: trackoffsets,
     title: "Track Offsets",
-    desc: "Chartd: Web Application",
+    desc: "Chartd: ITB Policy Management Software",
     text: "While working on this project I fixed various bugs and added features to the existing FastAPI backend including a variety of endpoints for access and modifying data which I had created the models for, permissions management and the automatic generation of reports into various different formats including CSV and Excel using openPyXL to generate the spreadsheets.",
     skills: [
       "Typescript",
-      "Vue3",
-      "Nuxt3",
+      "Vue.js",
+      "Nuxt.js",
       "FastAPI",
       "Python",
+      "Cognito",
       "OpenPyXL",
       "MongoDB",
-      "Cognito",
     ],
     big: true,
   },
@@ -67,7 +95,7 @@ const workProjects: ProjectData[] = [
     title: "Tacklebox",
     desc: "Pisces Research Project Management Inc: Web Application",
     text: "While working on this project I was mainly responsible for adding features to the existing backend Django project as well as creating associated pages in a frontend Vue application to support them. This included creating various models to store in the MongoDB database and creating serializers so that a RestAPI could be created allowing for interactions between the new Vue pages I created and the backend.",
-    skills: ["Vue", "Django", "Python", "MongoDB"],
+    skills: ["Vue.js", "Django", "Python", "MongoDB"],
     big: true,
   },
 ];
@@ -79,7 +107,7 @@ const personalProjects: ProjectData[] = [
     title: "Sticky Noter",
     desc: "Full Stack Web Application",
     text: "This application allows you to create, edit, delete, and move sticky notes around the web page. The sticky notes contain a rich text editor allowing the user to easily format the contents of each note.",
-    skills: ["Javascript", "Vue3", "Tailwind", "Node.js", "Express", "MongoDB", "Mongoose", "Docker"],
+    skills: ["Javascript", "Vue.js", "Tailwind", "Node.js", "Express", "MongoDB", "Mongoose", "Docker"],
   },
   {
     url: "https://github.com/IainMcilveen",
@@ -151,7 +179,7 @@ const personalProjects: ProjectData[] = [
     title: "Portfolio",
     desc: "Web Application",
     text: "This is my portfolio website which you are currently viewing! This was written in Nuxt.js with Sass styling and was created to demonstrate my current projects, skills and experience. It makes use of Github actions to compress images, and deploy to github pages when changes are pushed.",
-    skills: ["Vue3", "Nuxt3", "SCSS", "Typescript", "Github Actions"],
+    skills: ["Vue.js", "Nuxt.js", "SCSS", "Typescript", "Github Actions"],
   },
 ];
 
@@ -214,9 +242,15 @@ useHead({
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5em;
   padding: 8px 24px;
+
+  :deep(.project-card) {
+    width: 420px;
+    max-width: 100%;
+  }
 }
 </style>

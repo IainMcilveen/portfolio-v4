@@ -33,7 +33,7 @@ const ImageStyles = computed(() => {
       <div class="Image" :style="ImageStyles" />
     </template>
     <div class="Image" :style="ImageStyles">
-      <a v-if="url !== ''" :href="url">
+      <a v-if="url !== ''" :href="url" target="_blank" rel="noopener noreferrer">
         <img v-show="img_loaded" :src="img" @load="setLoaded()" />
         <div class="img-loading" v-show="!img_loaded">
           <FontAwesomeIcon class="load-icon" :icon="faSpinner" />

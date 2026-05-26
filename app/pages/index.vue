@@ -21,27 +21,27 @@ useHead({ title });
           <p>
             Hello there! I am a software developer based out of Halifax, Canada.
             Currently I work as a Software Engineer for
-            <a href="https://www.softwaresecured.com/">Software Secured</a> and
+            <a href="https://www.softwaresecured.com/" target="_blank" rel="noopener noreferrer">Software Secured</a> and
             have a Computer Science degree from
-            <a href="https://carleton.ca/">Carleton University.</a>
+            <a href="https://carleton.ca/" target="_blank" rel="noopener noreferrer">Carleton University.</a>
           </p>
           <p>
             I am passionate about all things computer science and enjoy learning
             new things. Outside of work I love cycling and volunteer at
-            <a href="https://ecologyaction.ca/our-work/transportation/bike-again"
+            <a href="https://ecologyaction.ca/our-work/transportation/bike-again" target="_blank" rel="noopener noreferrer"
               >Bike Again</a
             >
             helping people fix their bikes!
           </p>
         </div>
         <div class="links">
-          <a href="https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link">
+          <a href="https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon :icon="faFileLines" />Resume
           </a>
-          <a href="https://github.com/IainMcilveen">
+          <a href="https://github.com/IainMcilveen" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon :icon="faGithub" />GitHub
           </a>
-          <a href="https://www.linkedin.com/in/iain-mcilveen-64b14a185/">
+          <a href="https://www.linkedin.com/in/iain-mcilveen-64b14a185/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon :icon="faLinkedinIn" />LinkedIn
           </a>
           <a href="mailto:IainMcilveen@outlook.com">

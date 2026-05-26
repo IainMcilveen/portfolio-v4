@@ -25,7 +25,7 @@ const props = defineProps<{
     </div>
     <div class="project-body">
       <div class="project-title">
-        <a v-if="project.url" :href="project.url">
+        <a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer">
           <h4>{{ project.title }}</h4>
         </a>
         <h4 v-else>{{ project.title }}</h4>

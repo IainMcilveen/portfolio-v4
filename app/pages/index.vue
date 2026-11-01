@@ -1,51 +1,42 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faEnvelope, faFileLines } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+const { data: home } = await useHome();
 
 const title = ref("Home");
 useHead({ title });
 </script>
 
 <template>
-  <div class="page-home">
-    <ParticleBackground />
+  <div v-if="home" class="page-home">
     <div class="card">
       <div class="profile">
-        <img src="~/assets/img/profile.jpg" alt="Picture of Me" />
+        <NuxtImg
+          :src="home.image"
+          :alt="home.imageAlt"
+          width="340"
+          height="340"
+          sizes="140px md:340px"
+          format="webp"
+          preload
+        />
       </div>
       <div class="intro">
         <div class="intro-text">
-          <h1>Iain Mcilveen</h1>
+          <h1>{{ home.name }}</h1>
           <hr />
-          <p>
-            Hello there! I am a software developer based out of Halifax, Canada.
-            Currently I work as a Software Engineer for
-            <a href="https://www.softwaresecured.com/" target="_blank" rel="noopener noreferrer">Software Secured</a> and
-            have a Computer Science degree from
-            <a href="https://carleton.ca/" target="_blank" rel="noopener noreferrer">Carleton University.</a>
-          </p>
-          <p>
-            I am passionate about all things computer science and enjoy learning
-            new things. Outside of work I love cycling and volunteer at
-            <a href="https://ecologyaction.ca/our-work/transportation/bike-again" target="_blank" rel="noopener noreferrer"
-              >Bike Again</a
-            >
-            helping people fix their bikes!
-          </p>
+          <ContentRenderer :value="home" />
         </div>
         <div class="links">
-          <a href="https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon :icon="faFileLines" />Resume
+          <a :href="home.resume" target="_blank" rel="noopener noreferrer">
+            <Icon name="fa6-solid:file-lines" />Resume
           </a>
-          <a href="https://github.com/IainMcilveen" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon :icon="faGithub" />GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/iain-mcilveen-64b14a185/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon :icon="faLinkedinIn" />LinkedIn
-          </a>
-          <a href="mailto:IainMcilveen@outlook.com">
-            <FontAwesomeIcon :icon="faEnvelope" />Email
+          <a
+            v-for="link in home.links"
+            :key="link.url"
+            :href="link.url"
+            :target="link.url.startsWith('http') ? '_blank' : undefined"
+            :rel="link.url.startsWith('http') ? 'noopener noreferrer' : undefined"
+          >
+            <Icon :name="link.icon" />{{ link.label }}
           </a>
         </div>
       </div>
@@ -60,7 +51,6 @@ useHead({ title });
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1a1d23;
   overflow: hidden;
 }
 
@@ -74,7 +64,7 @@ useHead({ title });
   background: rgba(40, 44, 52, 0.72);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(99, 179, 237, 0.18);
+  border: 1px solid rgba($accent, 0.18);
   border-radius: 18px;
   max-width: 1200px;
   width: 94%;
@@ -89,8 +79,8 @@ useHead({ title });
     height: 340px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(99, 179, 237, 0.45);
-    box-shadow: 0 0 32px rgba(99, 179, 237, 0.18);
+    border: 2px solid rgba($accent, 0.45);
+    box-shadow: 0 0 32px rgba($accent, 0.18);
   }
 }
 
@@ -106,18 +96,18 @@ useHead({ title });
 
   hr {
     border: none;
-    border-top: 1px solid rgba(99, 179, 237, 0.3);
+    border-top: 1px solid rgba($accent, 0.3);
     margin-bottom: 0.85rem;
   }
 
-  p {
+  :deep(p) {
     margin: 0 0 0.75rem;
     font-size: 1.15em;
     line-height: 1.65;
   }
 
-  .intro-text a {
-    color: #7ec8e3;
+  .intro-text :deep(a) {
+    color: $accentLight;
     text-decoration: none;
 
     &:hover {
@@ -137,17 +127,20 @@ useHead({ title });
     align-items: center;
     gap: 0.45rem;
     padding: 0.38rem 1.15rem;
-    border: 1px solid rgba(99, 179, 237, 0.35);
+    border: 1px solid rgba($accent, 0.35);
     border-radius: 999px;
     color: $bgLight;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
-    background: rgba(99, 179, 237, 0.07);
+    transition:
+      background 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease;
+    background: rgba($accent, 0.07);
 
     &:hover {
-      background: rgba(99, 179, 237, 0.22);
-      border-color: rgba(99, 179, 237, 0.65);
+      background: rgba($accent, 0.22);
+      border-color: rgba($accent, 0.65);
       color: #fff;
     }
   }

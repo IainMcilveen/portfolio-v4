@@ -5,7 +5,9 @@ interface NavItem {
   external?: boolean;
 }
 
-const data: NavItem[] = [
+const { data: home } = await useHome();
+
+const data = computed<NavItem[]>(() => [
   {
     text: "Home",
     url: "/",
@@ -18,42 +20,34 @@ const data: NavItem[] = [
     text: "Projects",
     url: "/projects",
   },
-  {
-    text: "Resume",
-    url: "https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link",
-    external: true,
-  },
-];
+  ...(home.value ? [{ text: "Resume", url: home.value.resume, external: true }] : []),
+]);
 
-let hoverIndex = ref(-1);
-let navHidden = ref(false);
-
-const navbarClass = computed(() => {
-  return navHidden.value ? "navbar-hidden " : "";
-});
-
-const iClass = computed(() => {
-  return navHidden.value ? "hidden" : "visible";
-});
+const navHidden = ref(false);
 </script>
 
 <template>
-  <nav :class="'navbar ' + navbarClass">
-    <ul class="navbar-list">
-      <figure @mousedown="navHidden = !navHidden">
-        <i :class="iClass"></i>
-      </figure>
-      <li
-        v-for="(option, index) in data"
-        :key="'nav-' + index"
-        class="navbar-element"
-        :style="{
-          backgroundColor: hoverIndex === index ? '#323742' : '',
-        }"
-        @mouseover="hoverIndex = index"
-        @mouseleave="hoverIndex = -1"
-      >
-        <a class="navbar-link" :href="option.url" :target="option.external ? '_blank' : undefined" :rel="option.external ? 'noopener noreferrer' : undefined">{{ option.text }}</a>
+  <nav :class="['navbar', { 'navbar-hidden': navHidden }]">
+    <button
+      class="navbar-toggle"
+      type="button"
+      :aria-expanded="!navHidden"
+      aria-controls="navbar-list"
+      :aria-label="navHidden ? 'Show navigation' : 'Hide navigation'"
+      @click="navHidden = !navHidden"
+    >
+      <i :class="navHidden ? 'hidden' : 'visible'"></i>
+    </button>
+    <ul id="navbar-list" class="navbar-list">
+      <li v-for="option in data" :key="option.url" class="navbar-element">
+        <NuxtLink
+          class="navbar-link"
+          :to="option.url"
+          :target="option.external ? '_blank' : undefined"
+          :rel="option.external ? 'noopener noreferrer' : undefined"
+        >
+          {{ option.text }}
+        </NuxtLink>
       </li>
     </ul>
   </nav>
@@ -65,92 +59,106 @@ const iClass = computed(() => {
   top: 0;
   left: 0;
   z-index: 100;
+  display: flex;
+  align-items: stretch;
   height: 40px;
-  width: 100vw;
-  background-color: #282c34;
+  width: 100%;
+  padding-left: 10px;
+  box-sizing: border-box;
+  background-color: $bgDark;
 
   transition: 300ms ease all;
+}
+
+.navbar-toggle {
+  width: 35px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: -4px;
+    border-radius: 4px;
+  }
+
+  i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  // Shift toward the empty corner so the visible chevron, not its box, is centred
+  .visible {
+    transform: rotate(45deg) translate(-1.5px, -1.5px);
+  }
+
+  .hidden {
+    transform: rotate(-135deg) translate(-1.5px, -1.5px);
+  }
 }
 
 .navbar-list {
   display: flex;
   padding: 0;
-  padding-left: 10px;
-  margin-block-start: 0;
-  margin-block-end: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar-element {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  display: flex;
+  align-items: center;
   height: 100%;
-  align-items: stretch;
+  padding: 0 13px;
+  border-radius: 2px;
+  color: white;
+  text-decoration: none;
+  transition: 250ms ease all;
 
-  figure {
-    width: 15px;
-    margin: 0;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .visible {
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-    }
-
-    .hidden {
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-      transform: rotate(-135deg);
-      -webkit-transform: rotate(-135deg);
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: #323742;
   }
 
-  .navbar-element {
-    transition: 250ms ease all;
-
-    display: flex;
-    align-items: center;
-    border-radius: 2px;
-    padding: 0 8px;
-    list-style-type: none;
-    cursor: pointer;
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: -4px;
   }
 
-  .navbar-link {
-    color: white;
-    text-decoration: none;
-    padding: 5px;
+  // Current page
+  &.router-link-exact-active {
+    color: $accentLight;
+    box-shadow: inset 0 -2px 0 $accent;
   }
 }
 
 .navbar-hidden {
   height: 20px;
-  .navbar-element {
+
+  .navbar-list {
     display: none;
   }
 }
 
 @media screen and (max-width: 759px) {
-  nav {
-    .navbar-list {
-      padding-left: 3px;
+  .navbar {
+    padding-left: 3px;
+  }
 
-      .navbar-element {
-        padding: 3px;
-        padding-left: 1px;
-        padding-right: 1px;
-      }
-
-      .navbar-link {
-        padding: 0.1em;
-        padding-right: 0.3em;
-        font-size: 0.85em;
-      }
-    }
+  .navbar-link {
+    padding: 0 0.4em;
+    font-size: 0.85em;
   }
 }
 </style>

@@ -5,7 +5,7 @@ employer: "Software Secured"
 location: "Halifax, Canada"
 image: "/img/profile.jpg"
 imageAlt: "Photo of Iain Mcilveen"
-resume: "https://drive.google.com/file/d/1uZkv-KcseAJbz9IjpNXnb5G_69VQ9NFA/view?usp=drive_link"
+resume: "https://drive.google.com/file/d/1kxhxg0xwdZ6tmMLTzfinQqt7M1UFagSo/view?usp=sharing"
 links:
   - label: "GitHub"
     url: "https://github.com/IainMcilveen"

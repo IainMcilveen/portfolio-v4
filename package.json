@@ -1,24 +1,39 @@
 {
-    "name": "nuxt-app",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "nuxt build",
-        "dev": "nuxt dev",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^6.6.0",
-        "@fortawesome/free-brands-svg-icons": "^6.6.0",
-        "@fortawesome/free-regular-svg-icons": "^6.6.0",
-        "@fortawesome/free-solid-svg-icons": "^6.6.0",
-        "@fortawesome/vue-fontawesome": "^3.0.8",
-        "nuxt": "^3.12.4",
-        "vue": "latest"
-    },
-    "devDependencies": {
-        "sass": "^1.77.8"
-    }
+  "name": "portfolio-v4",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "vue-tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@iconify-json/fa6-brands": "^1.2.6",
+    "@iconify-json/fa6-solid": "^1.2.4",
+    "@nuxt/content": "^3.16.2",
+    "@nuxt/fonts": "^1.2.0",
+    "@nuxt/icon": "^2.6.2",
+    "@nuxt/image": "^2.2.1",
+    "@nuxtjs/sitemap": "^9.1.0",
+    "nuxt": "^4.6.3",
+    "nuxt-schema-org": "^7.0.1",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.17.0",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.10",
+    "sass": "^1.107.1",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.14"
+  },
+  "packageManager": "pnpm@12.16.1"
 }
